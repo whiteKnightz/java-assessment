@@ -14,9 +14,11 @@ package com.whiteknightz.demo.codewar;
  */
 public class TenMinWalk {
     public static boolean isValid(char[] walk) {
+        if (walk.length!=10){
+            return false;
+        }
         int yVal = 0;
         int xVal = 0;
-        int walkTime = 0;
         for (char c:walk){
             if (c=='w'){
                 xVal--;
@@ -27,9 +29,8 @@ public class TenMinWalk {
             } else if (c=='s'){
                 yVal--;
             }
-            walkTime++;
         }
-        return walkTime==10 && xVal==yVal && yVal==0;
+        return xVal==yVal && yVal==0;
     }
 
     public static void main(String[] args) {
