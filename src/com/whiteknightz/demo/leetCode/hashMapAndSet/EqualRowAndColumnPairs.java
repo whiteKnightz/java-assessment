@@ -38,13 +38,10 @@ public class EqualRowAndColumnPairs {
         int matched = 0;
 
         for (List<Integer> integers : rows) {
-            for (List<Integer> column : columns) {
-                if (integers.equals(column)) {
-                    matched++;
-                }
+            if (columns.contains(integers)){
+                matched++;
             }
         }
-
         return matched;
     }
 

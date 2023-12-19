@@ -3,7 +3,9 @@ package com.whiteknightz.demo.leetCode.binaryTreeBFS;
 import com.whiteknightz.demo.leetCode.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /*
     Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes
@@ -12,24 +14,35 @@ import java.util.List;
 public class BinaryTreeRightSideView {
 
     public static List<Integer> rightSideView(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<>();
-        if (root==null){
+        List<Integer> result = new ArrayList<>();
+        if (root == null) {
             return result;
         }
-        bfs(root, result);
-        return result;
-    }
 
-    private static void bfs(TreeNode root, ArrayList<Integer> values) {
-        if (root==null){
-            return;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            int rightmostValue = 0;
+
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode current = queue.poll();
+                rightmostValue = current.val;
+
+                if (current.left != null) {
+                    queue.offer(current.left);
+                }
+
+                if (current.right != null) {
+                    queue.offer(current.right);
+                }
+            }
+
+            result.add(rightmostValue);
         }
-        values.add(root.val);
-        if (root.right!=null){
-            bfs(root.right, values);
-        } else if (root.left!=null){
-            bfs(root.left, values);
-        }
+
+        return result;
     }
 
     public static void main(String[] args) {

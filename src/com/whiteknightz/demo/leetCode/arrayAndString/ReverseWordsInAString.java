@@ -14,12 +14,12 @@ only have a single space separating the words. Do not include any extra spaces.
  */
 public class ReverseWordsInAString {
     public static String reverseWords(String s) {
-        String rev = "";
-        String[] s1 = s.split(" ");
+        StringBuilder builder = new StringBuilder();
+        String[] s1 = s.split(" +");
         for (String val:s1){
-            rev = val.trim()+" "+rev.trim();
+            builder.insert(0, " ").insert(0, val);
         }
-        return rev.trim();
+        return builder.toString();
     }
 
     public static void main(String[] args) {
@@ -27,6 +27,6 @@ public class ReverseWordsInAString {
 
         String result = reverseWords(s);
 
-        System.out.println("Result:"+result);
+        System.out.println("Result should be 'example good a':"+result);
     }
 }

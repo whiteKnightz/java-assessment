@@ -27,7 +27,7 @@ public class LongestSubarrayOf1AfterDeletingOneElement {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,1,0,1};
+        int[] nums = {1,1,0,1, 1, 0, 0, 1};
         int result = longestSubarray(nums);
 
         System.out.println("Result:"+result);
