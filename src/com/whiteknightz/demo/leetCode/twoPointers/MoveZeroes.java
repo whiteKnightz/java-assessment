@@ -41,6 +41,26 @@ public class MoveZeroes {
         System.arraycopy(result, 0, nums, 0, len);
     }
 
+    /*
+    public void moveZeroes(int[] nums) {
+        int insertPos = 0;
+
+        // Move non-zero elements forward
+        for (int num : nums) {
+            if (num != 0) {
+                nums[insertPos] = num;
+                insertPos++;
+            }
+        }
+
+        // Fill remaining positions with zeros
+        while (insertPos < nums.length) {
+            nums[insertPos] = 0;
+            insertPos++;
+        }
+    }
+    */
+
     public static void main(String[] args) {
 //        int[] nums = {0,1,0,3,12};
         int[] nums = {0, 0, 1};
